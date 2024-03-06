@@ -49,6 +49,6 @@ add_library(CS2-Memory-Manager SHARED ${SRC_FILES})
 target_link_libraries(CS2-Memory-Manager PUBLIC LIEF::LIEF)
 
 #add include folder to includes of library
-target_include_directories(CS2-Memory-Manager PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(CS2-Memory-Manager PUBLIC ${INCLUDE_DIR})
 
 set_target_properties(CS2-Memory-Manager PROPERTIES VERSION ${PROJECT_VERSION})
