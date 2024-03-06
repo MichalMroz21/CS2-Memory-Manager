@@ -8,6 +8,8 @@ option(LIEF_PYTHON_API "Build LIEF Python API" OFF)
 option(LIEF_EXAMPLES "Build LIEF examples" OFF)
 option(LIEF_TESTS "Build LIEF tests" OFF)
 
+message(STATUS MSVC_VERSION)
+
 if(MSVC)
   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded" CACHE STRING "CRT option")
 endif()
@@ -21,26 +23,17 @@ set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 #Get cpp files to add to .dll
 file(GLOB SRC_FILES ${SOURCE_DIR}/*.cpp)
 
-set(LIEF_VERSION 0.13.2)
 set(LIEF_GIT_URL "https://github.com/lief-project/LIEF.git")
+set(LIEF_VERSION 0.14.1)
 
 include(FetchContent)
-  FetchContent_Declare(LIEF
-    GIT_REPOSITORY  "${LIEF_GIT_URL}"
-    GIT_TAG         ${LIEF_VERSION}
-    )
 
-  if(${CMAKE_VERSION} VERSION_LESS "3.14.0")
-    # CMake 3.11 to 3.13 needs more verbose method to make LIEF available
-    FetchContent_GetProperties(LIEF)
-    if(NOT LIEF_POPULATED)
-      FetchContent_Populate(LIEF)
-      add_subdirectory(${LIEF_SOURCE_DIR} ${LIEF_BINARY_DIR})
-    endif()
-  else()
-    # CMake 3.14+ has single function to make LIEF available (recommended)
-    FetchContent_MakeAvailable(LIEF)
-  endif()
+FetchContent_Declare(LIEF
+	GIT_REPOSITORY  "${LIEF_GIT_URL}"
+	GIT_TAG         ${LIEF_VERSION}
+)
+
+FetchContent_MakeAvailable(LIEF)
 
 #Create .dll
 add_library(CS2-Memory-Manager SHARED ${SRC_FILES})

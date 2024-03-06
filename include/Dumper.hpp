@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Assert.hpp"
-
 #include <Windows.h>
 #include <TlHelp32.h>
 #include <string>
 #include <vector>
 #include <unordered_map>
+
+#include "Assert.hpp"
 
 class Dumper {
 public:
