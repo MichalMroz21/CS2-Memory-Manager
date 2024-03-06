@@ -21,7 +21,7 @@ set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 #Get cpp files to add to .dll
 file(GLOB SRC_FILES ${SOURCE_DIR}/*.cpp)
 
-set(LIEF_VERSION 0.13.0)
+set(LIEF_VERSION 0.13.2)
 set(LIEF_GIT_URL "https://github.com/lief-project/LIEF.git")
 
 include(FetchContent)
