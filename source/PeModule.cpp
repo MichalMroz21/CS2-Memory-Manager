@@ -7,7 +7,7 @@ PeModule::PeModule(std::string name, std::vector<uint8_t> data) {
 
 	convertBytesToPE();
 
-	PE = PeLib::openPeFile("temp_pe.exe");
+	//PE = PeLib::openPeFile("temp_pe.exe");
 }
 
 void PeModule::convertBytesToPE() {

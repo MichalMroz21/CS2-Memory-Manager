@@ -76,6 +76,7 @@ std::vector<int> Dumper::pattern_to_bytes(const std::string& pattern) {
 	}
 
 	return result;*/
+	return {};
 }
 
 void Dumper::get_loaded_modules() {

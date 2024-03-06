@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iostream>
 
-#include <PeLib.h>
+#include <LIEF/LIEF.hpp>
 
 class PeModule {
 public:
@@ -15,5 +16,4 @@ public:
 
 	std::string name{};
 	std::vector<uint8_t> data{};
-	PeLib::PeFile* PE;
 };
